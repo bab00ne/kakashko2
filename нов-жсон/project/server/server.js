@@ -23,7 +23,7 @@ const server = http.createServer((req, res) => {
     console.log('Requested Path:', pathname);
 
     if (pathname === '/' && req.method === 'GET') {
-        fs.readFile(path.join(__dirname, 'index.html'), 'utf-8', (err, data) => {
+        fs.readFile(path.join(__dirname, '..', 'client', 'public', 'index.html'), 'utf-8', (err, data) => {
             if (err) {
                 console.log(err); 
                 res.statusCode = 500;
