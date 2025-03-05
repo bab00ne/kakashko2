@@ -87,7 +87,7 @@ const server = http.createServer((req, res) => {
     }
 
     else if (pathname === '/home' && req.method === 'GET') {
-        fs.readFile(path.join(__dirname, 'home.html'), 'utf-8', (err, data) => {
+        fs.readFile(path.join(__dirname, '..', 'client', 'public', 'home.html'), 'utf-8', (err, data) => {
             if (err) {
                 console.log("Ошибка при загрузке страницы:", err);
                 res.statusCode = 500;
@@ -98,7 +98,7 @@ const server = http.createServer((req, res) => {
             res.setHeader('Content-Type', 'text/html; charset=UTF-8');
             res.end(data);
         });
-    }
+    }    
 
     else {
         const staticFilePath = path.join(__dirname, pathname);
